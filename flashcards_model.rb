@@ -1,7 +1,6 @@
 require_relative 'card_model'
 
 class Deck
-  attr_reader :deck
   def initialize
     # Note: to make code more robust, we can
     # have different arrays for different
@@ -9,29 +8,31 @@ class Deck
     # empty lines, one for array w/o empty lines,
     # and one for array of card objs.
     @deck = []
+    @file = 'flashcard_samples.txt'
+    @unprocessed_deck = []
     load_file
     make_cards
   end
 
   def load_file
-    File.open('flashcard_samples.txt', 'r').each_line do |line|
-      @deck << line.strip
+    File.open(@file, 'r').each_line do |line|
+      @unprocessed_deck << line.strip
     end
 
-    @deck = remove_empty_str
+    @intermediate_deck = remove_empty_str
   end
 
   def remove_empty_str
-    @deck.delete_if(&:empty?)
+    @unprocessed_deck.delete_if(&:empty?)
   end
 
   def make_cards
     array = []
-    until @deck.empty?
-     array << Card.new(@deck.shift(2))
+    until @intermediate_deck.empty?
+     array << Card.new(@intermediate_deck.shift(2))
     end
 
-    @deck = array
+    @deck = array # KEEP THIS
   end
 
   def next_card

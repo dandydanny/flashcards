@@ -16,6 +16,7 @@ class DeckController
   def run
     input = ""
     IntroductoryView.new.render
+
     until input == "quit"
       card = @deck.next_card
       DefinitionView.new.render(card.definition)
