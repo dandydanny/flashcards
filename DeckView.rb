@@ -3,7 +3,9 @@ class IntroductoryView
   def render
 puts <<-STRING
 Welcome to Ruby Flash Cards. To play, just enter the corrrreeect term for each 
-definition!!!!!!! If you wish to end the game, please type end at any time. 
+definition!!!!!!! Guesses are case sensitive, be specific. 
+
+If you wish to end the game, please type end at any time. 
 
 Ready? (We aren't asking, we're telling you that you are ...) 
 
