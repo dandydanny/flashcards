@@ -1,6 +1,3 @@
-require 'debugger'
-require 'pp'
-
 require_relative 'card_model'
 
 class Deck
@@ -30,7 +27,7 @@ class Deck
 
   def make_cards
     array = []
-    while !@deck.empty?
+    until @deck.empty?
      array << Card.new(@deck.shift(2))
     end
 
