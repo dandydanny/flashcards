@@ -6,10 +6,12 @@
 
 require_relative 'DeckView' 
 require_relative 'flashcards_model'
+require 'debugger'
+require 'pp'
 
 class DeckController
   
-  attr_accessor :user_input, :correct_answer
+  attr_accessor :correct_answer, :card, :user_input
 
   SAFE_WORD = "quit"
 
@@ -17,11 +19,12 @@ class DeckController
     @deck = Deck.new(filename)
     self.correct_answer = false
     self.user_input = ""
+    self.card = nil
   end
 
   def run
     display_introduction
-    until user_input == SAFE_WORD
+    until @user_input == SAFE_WORD
       present_definition
       until correct_answer  
         take_guess
@@ -45,27 +48,23 @@ GOOO!!!
 STRING
   end
 
-  def fetch_card
-    card = @deck.next_card
-  end
-
   def present_definition
-    fetch_card
-    DefinitionView.new.render(card)
+    self.card = @deck.next_card
+    CardView.new.render(card)
   end
 
   def take_guess
-    self.user_input = fetch_guess
+    self.user_input = fetch_guess 
   end
 
   def fetch_guess
     puts
     print "Guess: "
-    gets.chomp
+    STDIN.gets.chomp
   end
 
   def display_feedback
-    correct_answer = card.match?(user_input)
+    self.correct_answer = card.match?(user_input)
     FeedbackView.new.render(correct_answer)
   end
 
