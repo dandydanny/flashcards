@@ -29,10 +29,13 @@ class Deck
      array << Card.new(@deck.shift(2))
     end
 
-    puts "----------------should get arr of objs"
-    p array
+    @deck = array
     
     # debugger
+  end
+
+  def next_card
+    @deck.sample
   end
 
 end
@@ -42,8 +45,10 @@ end
 
 
 # Driver / test
-# mydeck = Deck.new
+mydeck = Deck.new
 
-# mydeck.loadfile
+mydeck.loadfile
 
-# pp mydeck.make_cards
+mydeck.make_cards
+puts "should get one card obj ---------------"
+p mydeck.next_card
