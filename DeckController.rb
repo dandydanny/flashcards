@@ -20,20 +20,6 @@ class DeckController
   end
 
   def run
-<<<<<<< HEAD
-    input = ""
-    IntroductoryView.new.render
-
-    until input == "quit"
-      card = @deck.next_card
-      DefinitionView.new.render(card.definition)
-      outcome = false
-      until outcome  
-        input = TakeInputView.new.render
-        break if input == "quit"
-        outcome = card.match?(input)
-        FeedbackView.new.render(outcome)
-=======
     display_introduction
     until user_input == SAFE_WORD
       present_definition
@@ -41,7 +27,6 @@ class DeckController
         take_guess
         break if user_input == SAFE_WORD
         display_feedback
->>>>>>> .
       end
     end
   end
