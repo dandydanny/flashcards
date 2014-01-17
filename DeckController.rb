@@ -5,6 +5,8 @@
 ## As a user, I want to exit the program if I am SICK OF IT!!!!!!!!!
 
 require_relative 'DeckView' 
+require_relative 'flashcards_model'
+require_relative 'card_model'
 
 class DeckController
 
@@ -15,8 +17,9 @@ class DeckController
   def run
     input = ""
     IntroductoryView.new.render
+    p @deck
     until input == "end"
-      card = @deck.get_next_card
+      card = @deck.next_card
       DefinitionView.new.render(card.definition)
       outcome = false
       until outcome  

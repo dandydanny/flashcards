@@ -40,20 +40,20 @@ class FeedbackView
 
 end
 
-IntroductoryView.new.render
+# IntroductoryView.new.render
 
-DefinitionView.new.render("Ducks are fast and fly!")
+# DefinitionView.new.render("Ducks are fast and fly!")
 
-puts "OK here comes our input taker ... "
+# puts "OK here comes our input taker ... "
 
-input = TakeInputView.new.render
+# input = TakeInputView.new.render
 
-puts input
+# puts input
 
-correct = FeedbackView.new.render(true) #== "Correct"
+# correct = FeedbackView.new.render(true) #== "Correct"
 
-# puts correct == "Correct"
+# # puts correct == "Correct"
 
-incorrect = FeedbackView.new.render(false) #== "WRONGGGG!!!!!!!! TRY AGAIN!!!!!!!!"
+# incorrect = FeedbackView.new.render(false) #== "WRONGGGG!!!!!!!! TRY AGAIN!!!!!!!!"
 
 # puts incorrect == "WRONGGGG!!!!!!!! TRY AGAIN!!!!!!!!"
