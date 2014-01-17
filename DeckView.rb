@@ -1,39 +1,12 @@
 ## Views should be passed an object that the views know how to represent
 ## Transformation layer
 
-class IntroductoryView
 
-  def render
-puts <<-STRING
-Welcome to Ruby Flash Cards. To play, just enter the corrrreeect term for each 
-definition!!!!!!! Guesses are case sensitive, be specific. 
+class CardView 
 
-If you wish to end the game, please type quit at any time. 
-
-Ready? (We aren't asking, we're telling you that you are ...) 
-
-GOOO!!!
-
-STRING
-  end
-
-end
-
-class DefinitionView 
-
-  def render(definition) ##pass a card in 
+  def render(card) 
     puts
-    puts "Definition: \n #{definition}"
-  end
-
-end
-
-class TakeInputView ## nonsensical, no model behind it
-
-  def render
-    puts
-    print "Guess: "
-    gets.chomp
+    puts "Definition: \n #{card.definition}"
   end
 
 end
