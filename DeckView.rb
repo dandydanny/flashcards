@@ -10,6 +10,7 @@ If you wish to end the game, please type end at any time.
 Ready? (We aren't asking, we're telling you that you are ...) 
 
 GOOO!!!
+
 STRING
   end
 
@@ -18,6 +19,7 @@ end
 class DefinitionView
 
   def render(definition)
+    puts
     puts "Definition: \n #{definition}"
   end
 
@@ -26,6 +28,7 @@ end
 class TakeInputView
 
   def render
+    puts
     print "Guess: "
     gets.chomp
   end

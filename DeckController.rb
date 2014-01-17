@@ -16,14 +16,13 @@ class DeckController
   def run
     input = ""
     IntroductoryView.new.render
-    until input == "end"
+    until input == "quit"
       card = @deck.next_card
-      p card.class
       DefinitionView.new.render(card.definition)
       outcome = false
       until outcome  
         input = TakeInputView.new.render
-        break if input == "end"
+        break if input == "quit"
         outcome = card.match?(input)
         FeedbackView.new.render(outcome)
       end
