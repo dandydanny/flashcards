@@ -17,7 +17,6 @@ class Deck
   end
 
   def load_file
-    # deck = []
     File.open('flashcard_samples.txt', 'r').each_line do |line|
       @deck << line.strip
     end
@@ -44,9 +43,3 @@ class Deck
 
 end
 
-
-# Driver / test
-mydeck = Deck.new
-
-pp mydeck.next_card.definition
-pp mydeck.next_card.term

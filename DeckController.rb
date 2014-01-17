@@ -6,7 +6,6 @@
 
 require_relative 'DeckView' 
 require_relative 'flashcards_model'
-require_relative 'card_model'
 
 class DeckController
 
@@ -17,9 +16,9 @@ class DeckController
   def run
     input = ""
     IntroductoryView.new.render
-    p @deck
     until input == "end"
       card = @deck.next_card
+      p card.class
       DefinitionView.new.render(card.definition)
       outcome = false
       until outcome  
