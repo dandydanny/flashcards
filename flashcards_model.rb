@@ -13,6 +13,7 @@ class Deck
     # and one for array of card objs.
     @deck = []
     load_file
+    make_cards
   end
 
   def load_file
@@ -47,7 +48,5 @@ end
 # Driver / test
 mydeck = Deck.new
 
-mydeck.make_cards
-puts "should get one card obj ---------------"
 pp mydeck.next_card.definition
 pp mydeck.next_card.term
