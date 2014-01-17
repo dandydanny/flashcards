@@ -1,3 +1,6 @@
+## Views should be passed an object that the views know how to represent
+## Transformation layer
+
 class IntroductoryView
 
   def render
@@ -16,16 +19,16 @@ STRING
 
 end
 
-class DefinitionView
+class DefinitionView 
 
-  def render(definition)
+  def render(definition) ##pass a card in 
     puts
     puts "Definition: \n #{definition}"
   end
 
 end
 
-class TakeInputView
+class TakeInputView ## nonsensical, no model behind it
 
   def render
     puts
