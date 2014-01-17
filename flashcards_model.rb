@@ -6,7 +6,11 @@ require_relative 'card_model'
 class Deck
   attr_reader :deck
   def initialize
-    # Note: to make code 
+    # Note: to make code more robust, we can
+    # have different arrays for different
+    # stages of deck, e.g. one for array with
+    # empty lines, one for array w/o empty lines,
+    # and one for array of card objs.
     @deck = []
     load_file
   end
